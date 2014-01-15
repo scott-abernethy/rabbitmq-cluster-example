@@ -8,14 +8,14 @@ An working example of two multi-machine RabbitMQ setups...
 2. In the project root do: 
 
     ```bash
-		cd cluster
+    cd cluster
     vagrant up
     ```
 
-		OR
+    OR
 
     ```bash
-		cd federated
+    cd federated
     vagrant up
     ```
 #### Pub/sub simulation
@@ -25,6 +25,6 @@ To test each setup you can use the (very basic) tester included...
 
     ```bash
     cd tester
-		lein run
-		```
+    lein run
+    ```
 
