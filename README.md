@@ -18,4 +18,13 @@ An working example of two multi-machine RabbitMQ setups...
 		cd federated
     vagrant up
     ```
+#### Pub/sub simulation
+To test each setup you can use the (very basic) tester included...
+1. Install [Leiningen](http://leiningen.org/#install)
+2. In the project root do:
+
+    ```bash
+    cd tester
+		lein run
+		```
 
