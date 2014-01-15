@@ -1,0 +1,12 @@
+.vagrant
+tmp
+*.iml
+.idea
+
+target
+classes
+checkouts
+pom.xml
+pom.xml.asc
+.lein-*
+.nrepl-port

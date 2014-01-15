@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby ts=2 sw=2 expandtab:
+
+Vagrant.configure("2") do |config|
+
+  box = "precise32"
+  box_url = "http://files.vagrantup.com/precise32.box"
+
+  config.vm.define :rabbitmq1 do |conf|
+    conf.vm.box = box
+    conf.vm.box_url = box_url
+    conf.vm.hostname = "rabbitmq1"
+    conf.vm.network "private_network", ip: "192.168.64.10"
+    conf.vm.provision :shell, path: "../rabbitmq-base.sh"
+    conf.vm.provision :shell, path: "rabbitmq-upstream.sh"
+  end
+
+  config.vm.define :rabbitmq2 do |conf|
+    conf.vm.box = box
+    conf.vm.box_url = box_url
+    conf.vm.hostname = "rabbitmq2"
+    conf.vm.network "private_network", ip: "192.168.64.20"
+    conf.vm.provision :shell, path: "../rabbitmq-base.sh"
+    conf.vm.provision :shell do |s| 
+      s.path = "rabbitmq-federate.sh"
+      s.args = "rabbitmq1"
+    end
+  end
+
+end
